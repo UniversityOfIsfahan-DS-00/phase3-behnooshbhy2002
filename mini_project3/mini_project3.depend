@@ -1,5 +1,10 @@
 # depslib dependency file v1.0
-1638207320 source:d:\5g\data structure\mini_project3\phase3-behnooshbhy2002\mini_project3\calculator.cpp
+1638978066 source:d:\5g\data structure\mini_project3\phase3-behnooshbhy2002\mini_project3\calculator.cpp
 	<iostream>
 	<string>
+	<sstream>
+	<cstring>
+	<math.h>
+	<stdlib.h>
+	<iomanip>
 
