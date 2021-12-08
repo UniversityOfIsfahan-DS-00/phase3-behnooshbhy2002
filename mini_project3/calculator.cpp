@@ -145,6 +145,29 @@ bool control_error(string str[])
     return false;
 
 }
+void Postfix_To_Infix(string arr[])
+{
+    stack stk;
+    string num1 , num2;
+    int i=0;
+    while(arr[i]!="\0")
+    {
+
+        if(isOperators(arr[i]))
+        {
+            num1 = stk.pop();
+            num2 = stk.pop();
+            stk.push("(" + num2 + arr[i] + num1 + ")");
+        }
+        else
+        {
+             stk.push(arr[i]);
+        }
+        i++;
+    }
+    step++;
+    cout<<"Step "<<step<<" : "<<stk.pop()<<endl;
+}
 void solve(string arr[])
 {
     int i=0;
@@ -190,6 +213,22 @@ void solve(string arr[])
                ostringstream stt;
                stt << result;
                res=stt.str();
+
+                if(History)
+                {
+                    arr[i]=res;
+                    int temp=i;
+                    while(arr[temp]!="\0")
+                    {
+                      arr[temp-2]="\0";
+                      arr[temp-1]="\0";
+                      arr[temp-2]=arr[temp];
+                      arr[temp]="\0";
+                      temp++;
+                    }
+                    Postfix_To_Infix(arr);
+                    i=i-2;
+                }
 
                 stk.push(res);
 
@@ -346,3 +385,4 @@ int main()
     }
 
 }
+
